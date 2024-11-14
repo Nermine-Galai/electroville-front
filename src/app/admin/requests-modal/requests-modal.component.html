@@ -1,0 +1,41 @@
+<div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <a class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </a>
+        <div class="table-responsive">
+        <table style="margin-top: 1.6cm; " class="table table-without-lines">
+            <thead >
+                <tr >
+                    <th (click)="sortData('username')" style="cursor: pointer; background-color: #e0e0e0; color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Name</th>
+                    <th (click)="sortData('datejoin')" style="cursor: pointer; background-color: #e0e0e0;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Requested in</th>
+                    <th (click)="sortData('businessName')" style="cursor: pointer; background-color: #e0e0e0;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Business Name</th>
+                    <th (click)="sortData('businessAddress')" style="cursor: pointer; background-color: #e0e0e0;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Business Address</th>
+                    <th style="background-color: #e0e0e0;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Action</th>
+                  </tr>
+            </thead>
+            <tbody >
+              <tr *ngFor="let user of users">
+                <td>
+                  <span style="color: #222B45; font-size: 15px; font-family: Open Sans; font-weight: 600">{{ user.username }}</span>
+                  <br>
+                  <span style="color: #838b9c; font-size: 14px; font-family: Open Sans; font-weight: 400">{{ user.email }}</span>
+                </td>
+                <td style="color: #222B45; font-size: 15px; font-family: Open Sans; font-weight: 500;">{{ user.datejoin }}</td>
+                <td style="color: #222B45; font-size: 15px; font-family: Open Sans; font-weight: 500;">{{ user.businessName }}</td>
+                <td style="color: #222B45; font-size: 15px; font-family: Open Sans; font-weight: 500;">{{ user.businessAddress }} </td>
+                <td>
+                  <div class="table-buttons">
+                    <button type="button" class="btn btn-primary btn-sm" (click)="approveUser(user.id)">Accept</button>
+                    <button type="button" class="btn btn-danger btn-sm" (click)="deleteUser(user.id)">Refuse</button>
+                  </div>
+                </td>
+              </tr>
+              
+              
+              <!-- Add more rows as needed -->
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>

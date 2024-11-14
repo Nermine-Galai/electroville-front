@@ -1,0 +1,45 @@
+<div class="offset-1 col-10">
+    <div style="color: black; font-size: 26px; font-family: Open Sans; font-weight: 700; margin-top: 1cm; ">Users Dashboard</div>
+    <div style="width: 100%; height: 100%; background: white; border-radius: 16px; border: 1px #c7c9cb solid; margin-top: 0.5cm; padding-left: 0.5cm; padding-top: 0.5cm;">
+      <div class="container">
+        <span class="title">List Users</span>
+        <a class="link" (click)="openModal()">View new requests</a>
+    </div>
+    <div style="margin-left: -0.5cm;" class="table-responsive">
+        <table style="margin-top: 0.3cm;" class="table table-without-lines">
+            <thead >
+                <tr >
+                    <th (click)="sortData('username')" style="cursor: pointer; background-color: #e0e0e0; color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Name</th>
+                    <th (click)="sortData('role')" style="cursor: pointer;background-color: #e0e0e0;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;padding-right: 1cm; padding-left: 1cm;">Role</th>
+                    <th (click)="sortData('datejoin')" style="cursor: pointer;background-color: #e0e0e0;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Joined in</th>
+                    <th (click)="sortData('businessName')" style="cursor: pointer;background-color: #e0e0e0;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Business Name</th>
+                    <th style="background-color: #e0e0e0;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Action</th>
+                  </tr>
+            </thead>
+            <tbody >
+              <tr *ngFor="let user of users" >
+                <td>
+                  <span style="color: #222B45; font-size: 15px; font-family: Open Sans; font-weight: 600">{{ user.username }}</span>
+                  <br>
+                  <span style="color: #838b9c; font-size: 14px; font-family: Open Sans; font-weight: 400">{{ user.email }}</span>
+                </td>
+                <td>
+                  <div style="width: 70%;  height: 100%; background: #0095FF; border-radius: 8px">
+                    <div style="text-align: center; color: white; font-size: 15px; font-family: Open Sans; font-weight: 600">{{ user.role }}</div>
+                  </div>
+                </td>
+                <td style="color: #222B45; font-size: 15px; font-family: Open Sans; font-weight: 500;">{{ user.datejoin }}</td>
+                <td style="color: #222B45; font-size: 15px; font-family: Open Sans; font-weight: 500;">{{ user.businessName }}</td>
+                <td>
+                  <div class="table-buttons">
+                    <button *ngIf="user.role !== 'admin'" (click)="makeAdmin(user.id)" type="button" class="btn btn-primary btn-sm">Make admin</button>
+                    <button *ngIf="user.role === 'admin'" (click)="removeAdmin(user.id)" type="button" class="btn btn-primary btn-sm">Remove admin</button>
+                    <button type="button" class="btn btn-danger btn-sm" (click)="deleteUser(user.id)">Delete</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+    </div>
+</div>

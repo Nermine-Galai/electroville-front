@@ -1,0 +1,78 @@
+<div class="modal-dialog modal-xl" >
+    <div class="modal-content">
+        <a class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </a>
+
+<div class="row" style="margin-top: 1.5cm; margin-right: 0.5cm; padding-bottom: 4cm;">
+    <div class="col-6" style="margin-left: 0.5cm;">
+        <div class="carousel slide" id="carouselExample">
+            <div class="carousel-inner">
+                <div class="carousel-item" *ngFor="let image of product.imageNames; let i = index" [class.active]="i === 0">
+                    <img style="max-height: 11cm;" [src]="'http://localhost:8081/' + image" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <div class="carousel-indicators">
+                <button
+                    type="button"
+                    *ngFor="let image of product.imageNames; let i = index"
+                    [attr.data-bs-target]="'#carouselExample'"
+                    [attr.data-bs-slide-to]="i"
+                    [class.active]="i === 0"
+                    [attr.aria-label]="'Slide ' + (i + 1)"
+                    style="width: 100px;">
+                    <img [src]="'http://localhost:8081/' + image" class="d-block w-100" alt="...">
+                </button>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    
+    
+    
+    <div class="col">
+        <div class="row text2" style="color: #191C1F; font-family: Public Sans; font-weight: 600;">
+            {{product.name}}
+        </div>
+        <div class="row" style="margin-top: 0.3cm;">
+            <div class="col">
+            <span class="text1" style="color: #5F6C72; font-family: Public Sans; font-weight: 400;">Availability: </span>
+            <span class="text1" style="color: #2DB224;  font-family: Public Sans; font-weight: 600;">In Stock</span>
+        </div>
+          </div> 
+          <div class="row" style="margin-top: 0.3cm;">
+            <div class="col">
+                <span class="text1" style="color: #5F6C72;  font-family: Public Sans; font-weight: 400;">Brand: </span>
+                <span class="text1" style="color: #191C1F;  font-family: Public Sans; font-weight: 600;">{{product.brand}}</span>
+            </div>
+            <div class="col">
+                <span class="text1" style="color: #5F6C72; font-family: Public Sans; font-weight: 400;">Category: </span>
+                <span class="text1" style="color: #191C1F; font-family: Public Sans; font-weight: 600;">{{product.category}}</span>
+            </div>
+          </div>  
+          <div class="row" style="margin-top: 0.3cm;">
+            <span class="text2" style="color: #60850F; font-family: Public Sans; font-weight: 600; line-height: 32px; word-wrap: break-word">{{product.price}} TND</span>
+          </div>
+          <div class="row" style="margin-top: 0.3cm;">
+            <span class="text1" style="color: black; font-family: Montserrat; font-weight: 400;"> {{product.description}}</span>
+          </div>
+          <div class="row">
+            <div *ngIf="!isLoggedIn() || isClient()" class="offset-lg-3 offset-md-2 col-lg-6 col-md-7" style="margin-top: 1.5cm;">
+                <button (click)="addToCart(product.id,product.price)" class="btn myBtn" style="background-color: black; color: white;  font-family: Montserrat; font-weight: 500; width: 100%;" >
+                    <mat-icon class="cart">add_shopping_cart</mat-icon>
+                    Add to Cart
+                </button>
+            </div>
+          </div>
+         
+    </div>
+</div>
+</div>
+</div>

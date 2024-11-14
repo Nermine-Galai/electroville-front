@@ -1,0 +1,49 @@
+<div class="offset-1 col-10">
+    <div style="color: black; font-size: 26px; font-family: Open Sans; font-weight: 700; margin-top: 1cm; ">Orders</div>
+      
+    <div style="margin-left: -0.5cm;" class="table-responsive">
+        <table style="margin-top: 0.3cm; border: solid #e1e1e1; " class="table table-without-lines table-rounded">
+            <thead >
+                <tr >
+                    <th style="background-color: #e1e1e1; color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Order ID</th>
+                    <th style="background-color: #e1e1e1;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Product</th>
+                    <th style="background-color: #e1e1e1;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Quantity</th>
+                    <th style="background-color: #e1e1e1;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;padding-right: 1.5cm; padding-left: 1.5cm;">Status</th>
+                    <th style="background-color: #e1e1e1;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Payment Method</th>
+                    <th style="background-color: #e1e1e1;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Address</th>
+                    <th style="background-color: #e1e1e1;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">For</th>
+                    <th style="background-color: #e1e1e1;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Action</th>
+                  </tr>
+            </thead>
+            <tbody >
+              <tr *ngFor="let order of orders" >
+                <td>
+                  <span style="color: #222B45; font-size: 15px; font-family: Open Sans; font-weight: 600">{{ order.orderId }}</span>
+                </td>
+                <td style="color: #222B45; font-size: 15px; font-family: Open Sans; font-weight: 500;"> {{ order.productName }}
+                </td>
+                <td style="color: #222B45; font-size: 15px; font-family: Open Sans; font-weight: 500;">{{ order.quantity }}</td>
+                <td>
+                  <div [ngStyle]="{ 'background-color': getStatusColor(order.status) }" style="width: 92%; height: 100%; border-radius: 18px;">
+                    <div style="text-align: center; color: white; font-size: 15px; font-family: Open Sans; font-weight: 600">{{ order.status }}</div>
+                  </div>
+                </td>
+                <td style="color: #222B45; font-size: 15px; font-family: Open Sans; font-weight: 500;">{{ order.method }}</td>
+                <td style="color: #222B45; font-size: 15px; font-family: Open Sans; font-weight: 500;">{{ order.address }}, {{ order.city }}, {{ order.country }}.</td>
+                <td style="color: #222B45; font-size: 15px; font-family: Open Sans; font-weight: 500;">{{ order.client }}</td>
+                <td>
+                    <div *ngIf="order.status==='pending'" class="table-buttons">
+                      <button type="button" class="btn btn-primary btn-sm" (click)="updateOrderStatus(order, 'in progress')">Accept</button>
+                      <button type="button" class="btn btn-danger btn-sm" (click)="updateOrderStatus(order, 'cancelled')">Refuse</button>
+                    </div>
+                    <div class="table-buttons2" *ngIf="order.status!='pending' && order.status!='cancelled'">
+                        <button type="button" class="btn btn-sm" style=" background-color: #008080; color: white; font-size: 12px; font-family: Open Sans; font-weight: 400;"(click)="openModal(order)">Print invoice</button> <br>
+                        <button type="button" class="btn btn-primary btn-sm" *ngIf="order.status!='completed'" style="font-size: 12px; font-family: Open Sans; font-weight: 400;"(click)="updateOrderStatus(order, 'completed')">Mark completed</button>
+                    </div>
+                  </td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+    </div>

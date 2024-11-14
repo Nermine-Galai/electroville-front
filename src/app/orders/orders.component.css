@@ -1,0 +1,143 @@
+.cadre{
+    
+    padding-left: 0.7cm;
+    padding-bottom: 0.3cm;
+    margin-top: 0.4cm;
+    
+
+}
+
+.cadre-pending{
+    background-color: #FDFAE7;
+    border: 1px #F7E99E solid ;
+}
+.cadre-completed{
+    background-color: #e7fded;
+    border: 1px #a9f79e solid ;
+}
+.cadre-inProg{
+    background-color: #e7ebfd;
+    border: 1px #9ea0f7 solid ;
+
+}
+.cadre-cancelled{
+    background-color: #fde7e7;
+    border: 1px #f79e9e solid ;
+}
+
+
+button{
+    
+    font-size: 23px ;
+    border-radius: 25px ;
+    
+    
+}
+.ptot{
+    
+    color: #2DA5F3;
+    font-size: 23px;
+    font-family: Public Sans;
+    font-weight: 600;
+}
+.ref{
+    font-size: 32px;
+}
+
+
+.discrip{
+    color: gray;
+    
+}
+.big{
+    font-size: 30px;
+    font-family: Public Sans;
+    font-weight: 700;
+
+}
+.Pending{
+    
+    color: #E4730A;
+}
+.completed{
+    color: #4CAF50;
+
+}
+.inProg{
+    color: #1E90FF;
+
+}
+.cancelled{
+    color: #FF0000;
+
+}
+.small{
+    
+    font-size: 18px;
+    font-family: Public Sans;
+    font-weight: 400;
+}
+.prod{
+    color: #191C1F;
+}
+.pend{
+    color: #E4730A;
+    
+}
+.complete{
+    color: #4CAF50;
+
+}
+.Prog{
+    color: #1E90FF;
+
+}
+.cancel{
+    color: #FF0000;
+
+}
+
+@media (max-width: 1100px) {
+    button{
+        font-size: 20px ;
+    }
+    .ptot{
+        font-size: 20px;
+    }
+    .big{
+        font-size: 27px;
+    }
+    .small{
+        font-size: 15px;
+    }
+    .ref{
+        font-size: 30px;
+    }
+
+}
+@media (max-width: 900px) {
+    button{
+        font-size: 18px ;
+    }
+    .ptot{
+        font-size: 18px;
+    }
+    .big{
+        font-size: 25px;
+    }
+    .small{
+        font-size: 13px;
+    }
+    .ref{
+        font-size: 28px;
+    }
+
+}
+@media (max-width: 700px) {
+    
+    .big{
+        font-size: 22px;
+    }
+   
+
+}

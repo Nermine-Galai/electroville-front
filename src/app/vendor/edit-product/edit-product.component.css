@@ -1,0 +1,49 @@
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: #000; 
+    font-size: 0.8cm;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-dialog.modal-xl {
+    width: 24cm;
+    margin: auto;
+    margin-left: -4cm;
+}
+.text{
+  height: 100%; color: black; font-size: 18px; font-family: Montserrat; font-weight: 400
+}
+.btn{
+  font-size: 20px;
+}
+
+@media (max-width: 992px) {
+  .modal-dialog.modal-xl {
+    margin-left: 0;
+}
+}
+@media (max-width: 700px) {
+  .text {
+    font-size: 18px;
+}
+.btn{
+  font-size: 16px;
+}
+}
+@media (max-width: 576px) {
+  .text {
+    font-size: 16px;
+}
+.btn{
+  font-size: 14px;
+}
+.modal-dialog {
+  max-width: 100%;
+  margin: 0 10px; /* Add some padding */
+}
+}
+
+

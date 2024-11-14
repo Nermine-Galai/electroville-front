@@ -1,0 +1,8 @@
+<div class="row" style="margin-top: 0.5cm;">
+    <div class="col offset-1" style="color: black; font-size: 40px; font-family: Montserrat; font-weight: 700; word-wrap: break-word">Placed Orders</div>
+</div>
+   
+
+<div class="row" style="padding-bottom: 0.3cm;">
+    <div *ngFor="let order of orders" class="col-10 offset-1"> <app-orders [order]="order" ></app-orders></div>
+</div>

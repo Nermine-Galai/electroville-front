@@ -1,0 +1,35 @@
+
+<div class="container">
+  <div class="row" style="margin-top: 1cm;">
+    <!-- Brand Selection Column -->
+    <div class="col-8 col-md-3" style="max-height: 9cm; border-radius: 20px; overflow: hidden; border: 1px rgba(0, 0, 0, 0.10) solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex;">
+      <div style="flex-direction: column; gap: 8px;">
+        <div style="width: 312px; color: #191C1F; font-size: 16px; font-family: 'Public Sans'; font-weight: 500; text-transform: uppercase; padding-top: 10px;"><b>popular Brands</b></div>
+        
+        <div *ngFor="let brand of brands; let i = index; let even = even;" style="display: flex; gap: 8px;">
+          <div *ngIf="i % 2 === 0" style="display: flex; align-items: center;">
+            <mat-checkbox [checked]="brand.selected" (change)="toggleBrand(brand)"></mat-checkbox>
+            <div style="width: 124px; color: #475156; font-size: 14px; font-family: 'Public Sans'; font-weight: 400;">{{ brand.name }}</div>
+            <div *ngIf="brands[i + 1]" style="display: flex; align-items: center;">
+            <mat-checkbox [checked]="brands[i + 1].selected" (change)="toggleBrand(brands[i + 1])"></mat-checkbox>
+            <div style="width: 124px; color: #475156; font-size: 14px; font-family: 'Public Sans'; font-weight: 400;">{{ brands[i + 1].name }}</div>
+          </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Cards Column -->
+    <div class="col-12 col-md-9 ">
+      <div *ngIf="!isProductsPath()" class="row" >
+        <div *ngFor="let product of ProductsPerCat" class="col-6 col-lg-4" style="margin-bottom: 0.7cm;"><app-product-card [product]="product"></app-product-card></div>
+      </div>
+      <div *ngIf="isProductsPath()" class="row" >
+        
+        <div *ngFor="let product of ProductsSearched" class="col-6 col-lg-4" style="margin-bottom: 0.7cm;"><app-product-card [product]="product"></app-product-card></div>
+      </div>
+    </div>
+  </div>
+</div>
+

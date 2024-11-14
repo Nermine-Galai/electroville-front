@@ -1,0 +1,45 @@
+<div class="card">
+    <div [id]="'carouselExampleIndicators' + product.id" class="carousel slide carousel-fade custom-indicators">
+      <div class="carousel-indicators">
+        <button type="button" [attr.data-bs-target]="'#carouselExampleIndicators' + product.id" [attr.data-bs-slide-to]="i" [attr.aria-label]="'Slide ' + (i + 1)"
+          [class.active]="i === 0" *ngFor="let image of product.imageNames; let i = index"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item" *ngFor="let image of product.imageNames; let i = index" [class.active]="i === 0">
+          <img [src]="'http://localhost:8081/' + image" class="d-block w-100 top-rounded" alt="...">
+        </div>
+      </div>
+      <span *ngIf="product.status==='pending'" class="badge" style="width: 40%; position: absolute; top: 10px; left: 10px; z-index: 1; background-color: #FDAB30;">
+        Pending
+      </span>
+    </div>
+    <div class="card-body">
+      <div class="row" style="min-height: 1.4cm;">
+        <div class="col">
+          <h1 class="card-title" style="color: #2C2C2C; font-size: 20px; font-family: Montserrat; font-weight: 800;">
+            <a class="in" (click)="viewProduct(product)">{{ product.name }} ({{product.inventory}})</a>
+          </h1>
+        </div>
+        <div class="col">
+          <p class="card-text" style="text-align: right; color: #60850F; font-size: 18px; font-family: Montserrat; font-weight: 800;">
+            {{ product.price }} TND
+          </p>
+        </div>
+      </div>
+      <div class="row" style="min-height: 1.4cm;">
+        <div style="color: black; font-size: 16px; font-family: Montserrat; font-weight: 400;">
+          {{ product.description }}
+        </div>
+      </div>
+      <div class="button-container" style="margin-top: 0.5cm; text-align: center;">
+        <button (click)="openModal(product)" class="btn btn-warning" style="margin: 0 10px; width: 100%;border-radius: 20px;">
+          Edit
+        </button>
+        <button (click)="deleteProduct(product.id)" class="btn btn-danger" style="margin: 0 10px; width: 100%; border-radius: 20px;">
+          Delete
+        </button>
+      </div>
+      
+    </div>
+  </div>
+  

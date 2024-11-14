@@ -1,0 +1,42 @@
+.table-without-lines {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .table-without-lines td, .table-without-lines th {
+    
+    padding: 16px; /* Adjust padding as needed */
+  }
+  .table-without-lines td{
+    border-bottom: 2px solid #e0e0e0;
+  }
+  .table-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+  .table-buttons .btn {
+    margin-bottom: 5px;
+    width: 100px; /* Adjust the width as needed */
+    font-size: 12px; /* Adjust the font size as needed */
+  }
+  .table-buttons .btn:last-child {
+    margin-bottom: 0;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title {
+    color: #222B45;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+.link {
+    color: black;
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+}

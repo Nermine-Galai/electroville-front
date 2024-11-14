@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import ".././node_modules/bootstrap/dist/css/bootstrap.css";
+
+@import ".././node_modules/@fortawesome/fontawesome-free/css/all.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Target checked state of mat-checkbox */
+/* Styles for the checkbox */
+/* Override Angular Material styles for checkbox */
+
+
+.cdk-overlay-container {
+    z-index: 999999999 !important;
+  }
+  

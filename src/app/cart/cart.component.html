@@ -1,0 +1,70 @@
+<div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <a class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </a>
+        <div style="margin-top: 0.8cm;padding-bottom: 1cm;">
+            <div class="row">
+                <div class="col offset-1">
+                    <span class="big" >Your cart</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-1 col-10">
+                    <div style=" padding-top: 20px; padding-bottom: 20px; border-radius: 20px; overflow: hidden; border: 1px rgba(0, 0, 0, 0.10) solid;">
+                        <div class="row" *ngFor="let item of cart.items" ><!--repeat this-->
+                            <div class="col-3 offset-1" style="border-radius: 8.66px; overflow: hidden; padding-bottom: 0.3cm;">
+                               <img width="70%" [src]="'http://localhost:8081/' + item.imageName" />
+                            </div>
+                            <div class="col" >
+                                <div class="row">
+                                    <div class="col offset-9 offset-md-10" style="position: relative ;cursor: pointer;"(click)="removeFromCart(item.id,item.productId)">
+                                        <div style="position: absolute;"><img src="assets\Frame.svg" alt=""></div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 0.6cm;">
+                                    <div class="name">{{item.productName}}</div>
+                                </div>
+                                <div class="row" style="margin-top: 0.6cm;">
+                                    <div class="col-3">
+                                        <div class="price" >{{item.price}}</div>
+                                    </div>
+                                    <div class="offset-4 col-4" style="margin-bottom: 0.6cm; height: 1.4cm; background: #F0F0F0; border-radius: 62px; overflow: hidden; justify-content: center; gap: 20px; display: inline-flex">
+                                        
+                                            <div class="col" style="cursor: pointer;"(click)="onRemoveItem(item.productId)">
+                                                <div style=" margin-top: 0.3cm;"><img class="sign" src="assets\minus.svg" alt=""></div>
+                                            </div>
+                                            <div  class="quantity col offset-1"><b>{{item.quantity}}</b></div>
+                                            <div class="col"style="cursor: pointer;"(click)="onAddItem(item.productId)">
+                                                <div style="margin-top: 0.3cm;"><img class="sign" src="assets\plus.svg" alt=""></div>
+                                            </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="row" style="align-self: stretch; height: 0px; border: 1px rgba(0, 0, 0, 0.10) solid; margin-bottom: 0.4cm;"></div>
+                        </div>
+                        <div class="row">
+                        <div class="col-4 offset-8 total">{{cart.total}} TND</div>
+                    </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row" *ngIf="!loggedIn && (cartItemsCount | async) != 0">
+                <button class="btn col-4 offset-4" style="margin-top: 0.6cm; background: black; border-radius: 20px; height: 1.3cm; justify-content: center; align-items: center; display: inline-flex" (click)="navigateAndClose()">
+                    <div style="color: white; font-size: 16px; font-family: Montserrat; font-weight: 500; ">Proceed to checkout </div>
+                    <i class="material-icons" style="color: white;">arrow_forward</i>
+                   </button>
+            </div>
+            <div class="row" *ngIf="loggedIn && (cartItemsCount | async) != 0">
+                <button class="btn col-4 offset-4" style="margin-top: 0.6cm; background: black; border-radius: 20px; height: 1.3cm; justify-content: center; align-items: center; display: inline-flex" (click)="checkoutAndClose()">
+                    <div style="color: white; font-size: 16px; font-family: Montserrat; font-weight: 500; ">Proceed to checkout </div>
+                    <i class="material-icons" style="color: white;">arrow_forward</i>
+                   
+                   </button>
+            </div>
+            
+        </div>
+    </div>
+    </div>

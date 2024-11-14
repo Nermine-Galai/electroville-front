@@ -1,0 +1,45 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .text{
+    font-size: 64px;
+    font-family: Prompt; 
+    font-weight: 800; 
+    line-height: 80px; 
+    word-wrap: break-word;
+  }
+
+  @media (max-width: 1200px) {
+    .text{
+      font-size: 50px;
+    }
+    
+  }
+  @media (max-width: 1000px) {
+    .text{
+      font-size: 45px;
+    }
+    
+    
+  }
+  @media (max-width: 800px) {
+    .text{
+      font-size: 40px;
+    }
+    
+    
+  }
+  @media (max-width: 600px) {
+    .text{
+      font-size: 35px;
+    }
+   
+    
+  }
+  @media (max-width: 500px) {
+    .text{
+      font-size: 30px;
+    }
+   
+  }

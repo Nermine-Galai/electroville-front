@@ -1,0 +1,209 @@
+
+.top-rounded {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .card-title{
+    color: #2C2C2C; font-size: 20px; font-family: Montserrat; font-weight: 800;
+  }
+  .card-text{
+    text-align: right; color: #60850F; font-size: 18px; font-family: Montserrat; font-weight: 800;
+  }
+  .card-description{
+    color: black; font-size: 16px; font-family: Montserrat; font-weight: 400;
+  }
+  .cart-text{
+    font-size: 16px; font-family: Montserrat; font-weight: 500;
+
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 25px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);
+    width: 90%;
+    min-height: 13cm;
+    max-height: 13cm;
+    margin-top: 0.5cm;
+    
+  }
+  .controling{
+    min-height: 2cm; 
+    max-height: 2cm;
+  }
+  
+  .carousel-item img {
+    max-width: 100%;
+    height: auto;
+    max-height: 245px; /* Adjust this value as needed */
+    min-height: 245px;
+  }
+  
+  
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+
+
+/* Custom CSS for carousel indicators */
+.custom-indicators .carousel-indicators {
+    display: none; /* Hide indicators by default */
+}
+/* Display indicators when hovering over the carousel container */
+.card:hover .custom-indicators .carousel-indicators {
+    display: flex !important;
+}
+.custom-indicators .carousel-indicators button {
+    background-color: black !important; /* Set background color */
+    width: 10px; /* Set width */
+    height: 10px; /* Set height */
+    border-radius: 50%; /* Make it a circle */
+    border: none; /* Remove border */
+    margin: 0 5px; /* Add some space between indicators */
+}
+.custom-indicators .carousel-indicators .active {
+    background-color: white !important; /* Set active indicator color */
+}
+
+a.in {
+    color: black; /* Set the default color to black */
+    text-decoration: none; /* Remove underline by default */
+}
+
+a.in:hover {
+    text-decoration: underline; /* Add underline when hovered on */
+}
+.btn-custom {
+    border: 2px solid black; /* Black border */
+    background-color: white; /* White background */
+    color: black; /* Black text color */
+    border-radius: 25px; /* Round corners, smaller radius */
+    padding: 10px 8px; /* Adjusted padding for a smaller button */
+    text-align: center; /* Center text and icon */
+    display: inline-flex; /* Use flex to align icon and text */
+    align-items: center; /* Vertically center align icon and text */
+    justify-content: center; /* Horizontally center align icon and text */
+    text-decoration: none; /* Remove underline from link */
+    width: 4.5cm; /* Let the button width adjust to content */
+  }
+  
+  .btn-custom:hover {
+    background-color: black; /* Background color on hover */
+    color: white; /* Text color on hover */
+  }
+  
+  .btn-custom i {
+    margin-right: 10px; /* Space between icon and text */
+  }
+  /* Container CSS */
+.button-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically, if needed */
+    height: 100%; /* Adjust as needed */
+  }
+  
+  
+  @media (max-width: 1200px) {
+    .carousel-item img {
+      max-height: 210px; /* Adjust this value as needed */
+      min-height: 210px;
+    }
+    .card{
+      min-height: 11.5cm;
+      max-height: 11.5cm;
+    }
+    .card-title{
+      font-size: 16px;
+    }
+    .card-text{
+      font-size: 15px;
+    }
+    .card-description{
+      font-size: 14px;
+    }
+    .cart-text{
+      font-size: 14px;
+    }
+    .controling{
+      min-height: 1.65cm; 
+      max-height: 1.65cm;
+    }
+    
+}
+@media (max-width: 1030px) {
+  .carousel-item img {
+    max-height: 200px; /* Adjust this value as needed */
+    min-height: 200px;
+  }
+  .card{
+    min-height: 10.8cm;
+    max-height: 10.8cm;
+  }
+  .card-title{
+    font-size: 15px;
+  }
+  .card-text{
+    font-size: 14px;
+  }
+  .card-description{
+    font-size: 13px;
+  }
+  .cart-text{
+    font-size: 13px;
+  }
+  .controling{
+    min-height: 1.55cm; 
+    max-height: 1.55cm;
+  }
+}
+@media (max-width: 992px) {
+  .carousel-item img {
+    max-height: 190px; /* Adjust this value as needed */
+    min-height: 190px;
+  }
+  .card{
+    min-height: 11cm;
+    max-height: 11cm;
+  }
+  .card-title{
+    font-size: 16px;
+  }
+  .card-text{
+    font-size: 15px;
+  }
+  .card-description{
+    font-size: 14px;
+  }
+  .cart-text{
+    font-size: 14px;
+  }
+  .controling{
+    min-height: 1.7cm; 
+    max-height: 1.7cm;
+  }
+}
+
+
+@media (max-width: 768px) {
+    .card{
+        margin-top: 0.8cm;
+    }
+    .carousel-item img {
+      max-height: 200px; /* Adjust this value as needed */
+      min-height: 200px;
+    }
+    .cart-icon{
+      width: 0.6cm;
+    }
+    .btn-custom {
+      width: 4cm;
+    }
+    
+}

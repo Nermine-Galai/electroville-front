@@ -1,0 +1,38 @@
+<div class="card">
+  <div [id]="'carouselExampleIndicators' + product.id" class="carousel slide carousel-fade custom-indicators">
+    <div class="carousel-indicators">
+      <button type="button" [attr.data-bs-target]="'#carouselExampleIndicators' + product.id" [attr.data-bs-slide-to]="i" [attr.aria-label]="'Slide ' + (i + 1)"
+        [class.active]="i === 0" *ngFor="let image of product.imageNames; let i = index"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let image of product.imageNames; let i = index" [class.active]="i === 0">
+        <img [src]="'http://localhost:8081/' + image" class="d-block w-100 top-rounded" alt="...">
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row controling" >
+      <div  class="col">
+        <h1 class="card-title">
+          <a style="cursor: pointer;" class="in" (click)="viewProduct(product)">{{ product.name }}</a>
+        </h1>
+      </div>
+      <div class="col">
+        <p class="card-text">
+          {{ product.price }} TND
+        </p>
+      </div>
+    </div>
+    <div class="row controling">
+      <div class="card-description">
+        {{ product.description }}
+      </div>
+    </div>
+    <div *ngIf="!isLoggedIn() || isClient()" class="button-container" style="margin-top: 0.5cm; text-align: center;">
+      <a  (click)="addToCart(product.id,product.price)" routerLinkActive="active" class="btn btn-custom">
+        <mat-icon class="cart-icon">add_shopping_cart</mat-icon>
+        <span class="cart-text">Add to Cart</span>
+      </a>
+    </div>
+  </div>
+</div>

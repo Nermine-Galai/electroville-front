@@ -1,0 +1,100 @@
+<!-- navbar.component.html -->
+<div class="row">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <!-- Logo -->
+    <a class="navbar-brand" href="#">
+      <img class="navbar-img2" src="assets\logo2.png" height="60" alt="Logo">
+      <img class="navbar-img" src="assets\logo.png" height="60" alt="Logo">
+    </a>
+
+    <!-- Navbar items and search bar -->
+    <div class="search-container offset-lg-1">
+      <form (ngSubmit)="onSubmit()">
+        <div class="input-group">
+          <input type="text"  [(ngModel)]="searchName" name="searchName" required class="form-control rounded-pill" id="search-bar" placeholder="search for products...">
+          <div class="input-group-append">
+            <button class="btn rounded-pill" type="submit">
+              <i class="fa fa-search fa-lg" aria-hidden="true"></i> 
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Cart icon with badge -->
+    <div *ngIf="!isLoggedIn() || isClient()" style="cursor: pointer;" (click)="openModal()" class="cart offset-lg-1">
+      <mat-icon [matBadge]="cartItemsCount | async" matBadgeColor="warn" class="larger-icon">shopping_cart</mat-icon>
+    </div>
+    <!-- Sign-in icon -->
+    <div class="offset-lg-2 larger-icon2-container">
+      
+      <a *ngIf="!isLoggedIn()" [routerLink]="['/signin']" style="color: black; font-size: 15px;"> <b> Sign In </b> </a>
+      <a *ngIf="isAdmin() || isVendor()" style="color: transparent; font-size: 15px;">aaaaaaaaaaaaaaa</a>
+      <a *ngIf="isClient()" style="color: transparent; font-size: 15px;">aaaaa</a>
+      <img data-bs-toggle="dropdown" src="assets\profile-icon-login-head-icon-vector.jpg" alt="" height="30cm" style="margin-left: 10px;cursor: pointer;">
+      <div class="dropdown" *ngIf="isAdmin()">
+        <ul class="dropdown-menu" style=" z-index: 9999;"  >
+          <li><a class="dropdown-item" [routerLink]="['/admin/ManageProducts']">Manage Products</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/admin/ManageUsers']">Manage Users</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/admin/ConsultOrders']">Consult Orders</a></li>
+          <li><a class="dropdown-item" href="#"(click)="signOut()">Sign out</a></li>
+        </ul>
+      </div>
+      <div class="dropdown" *ngIf="isVendor()">
+        <ul class="dropdown-menu" style="z-index: 9999;" >
+          <li><a class="dropdown-item" [routerLink]="['/vendor/ManageProducts', user.id]">Manage Your Products</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/vendor/ManageOrders', user.id]">Manage Your Orders</a></li>
+          <li><a class="dropdown-item" href="#" (click)="signOut()">Sign out</a></li>
+        </ul>
+      </div>
+      <div class="dropdown" *ngIf="isClient()">
+        <ul class="dropdown-menu" style="margin-left: -1.6cm; z-index: 9999;" >
+          <li><a class="dropdown-item" [routerLink]="['/viewOrders', user.id]">My Orders</a></li>
+          <li><a class="dropdown-item" href="#" (click)="signOut()">Sign out</a></li>
+        </ul>
+      </div>
+    </div>
+    
+  </nav>
+  <!-- New row for categories -->
+  <div class="row categories-row">
+    <div class="col-lg-12">
+        <div class="btn-group" role="group" aria-label="Categories">
+            <button type="button" class="btn btn-dark btn-icon col-2" [routerLink]="['/products/computer and laptops']">
+                <span class="icon-wrapper">
+                    <mat-icon class="mat-icon-round">computer</mat-icon>
+                </span>
+                <span class="categories text-responsive">Computer & laptops</span>
+            </button>
+
+            <button type="button" class="btn btn-dark btn-icon col-2" [routerLink]="['/products/mobile and phones']">
+                <span class="icon-wrapper">
+                    <mat-icon class="mat-icon-round">smartphone</mat-icon>
+                </span>
+                <span class="categories text-responsive">Mobile & Phones</span>
+            </button>
+
+            <button type="button" class="btn btn-dark btn-icon col-2" [routerLink]="['/products/accessories']">
+                <span class="icon-wrapper">
+                    <mat-icon class="mat-icon-round">speaker</mat-icon>
+                </span>
+                <span class="categories text-responsive">Accessories</span>
+            </button>
+
+            <button type="button" class="btn btn-dark btn-icon col-2" [routerLink]="['/products/tv']">
+                <span class="icon-wrapper">
+                    <mat-icon class="mat-icon-round">tv</mat-icon>
+                </span>
+                <span class="categories text-responsive">Tv</span>
+            </button>
+
+            <button type="button" class="btn btn-dark btn-icon col-2" [routerLink]="['/products/cameras']">
+                <span class="icon-wrapper">
+                    <mat-icon class="mat-icon-round">camera_alt</mat-icon>
+                </span>
+                <span class="categories text-responsive">Camera</span>
+            </button>
+        </div>
+    </div>
+</div>
+

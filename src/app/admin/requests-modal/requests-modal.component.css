@@ -1,0 +1,57 @@
+/* my-modal.component.css */
+
+ 
+  .close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: #000; 
+    font-size: 0.8cm;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-dialog.modal-xl {
+    width: 24cm;
+    margin: auto;
+    margin-left: -4cm;
+}
+.table-without-lines {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .table-without-lines td, .table-without-lines th {
+    
+    padding: 16px; /* Adjust padding as needed */
+  }
+  .table-without-lines td{
+    border-bottom: 2px solid #e0e0e0;
+  }
+  .table-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+  .table-buttons .btn {
+    margin-bottom: 5px;
+    width: 100px; /* Adjust the width as needed */
+    font-size: 12px; /* Adjust the font size as needed */
+  }
+  .table-buttons .btn:last-child {
+    margin-bottom: 0;
+  }
+
+
+  @media (max-width: 992px) {
+    .modal-dialog.modal-xl {
+      margin-left: 0;
+      
+  }
+ 
+  }
+  @media (max-width: 576px) {
+    .modal-dialog {
+      max-width: 100%;
+      margin: 0 10px; /* Add some padding */
+    }
+  }
+  

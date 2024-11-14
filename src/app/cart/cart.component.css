@@ -1,0 +1,74 @@
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: #000; 
+    font-size: 0.8cm;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-dialog.modal-xl {
+    width: 20cm;
+    margin: auto;
+    margin-left: -4cm;
+}
+.big{
+  color: black; font-size: 40px; font-family: Integral CF; font-weight: 700;
+}
+.name{
+  color: black; font-size: 20px; font-family: Montserrat; font-weight: 700;
+}
+.price{
+  color: #2DB224; font-size: 22px; font-family: Montserrat; font-weight: 700;
+}
+.quantity{
+  color: black; font-size: 18px; font-family: Montserrat; font-weight: 500;margin-top: 0.3cm;
+}
+.total{
+  color: black; font-size: 24px; font-family: Montserrat; font-weight: 700;
+}
+
+@media (max-width: 992px) {
+  .modal-dialog.modal-xl {
+    margin-left: 0;
+    
+}
+.big{
+  font-size: 34px;
+}
+.name{
+  font-size: 16px;
+}
+.price{
+  font-size: 18px;
+}
+.quantity{
+  font-size: 16px;
+}
+.total{
+  font-size: 20px;
+}
+.sign{
+  width: 16px;
+}
+
+}
+@media (max-width: 576px) {
+  .modal-dialog {
+    max-width: 100%;
+    margin: 0 10px; /* Add some padding */
+  }
+  .price{
+    font-size: 18px;
+  }
+  .quantity{
+    font-size: 15px;
+  }
+  .total{
+    font-size: 19px;
+  }
+  .sign{
+    width: 14px;
+  }
+}

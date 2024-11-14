@@ -1,0 +1,14 @@
+<div class="text-center">
+    <span class="text" style="color: black">Our </span>
+    <span class="text" style="color: #909090">newest</span>
+    <span class="text" style="color: black"> products</span>
+</div>
+<div class="row card-container" style="margin-left: 3%; margin-right: 3%;">
+    <div *ngFor="let product of recentApprovedProducts" class="col-6 col-md-4 col-lg-3">
+      <app-product-card [product]="product"></app-product-card>
+    </div>
+  </div>
+  
+<div class="div">
+    <span style="color: transparent;">.</span>
+</div>

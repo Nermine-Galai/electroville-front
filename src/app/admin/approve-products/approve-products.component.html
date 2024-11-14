@@ -1,0 +1,49 @@
+<div class="offset-1 col-10">
+    <div style="color: black; font-size: 26px; font-family: Open Sans; font-weight: 700; margin-top: 1cm; ">Pending Products</div>
+      
+    <div style="margin-left: -0.5cm;" class="table-responsive">
+        <table style="margin-top: 0.3cm; border: solid #e1e1e1; " class="table table-without-lines table-rounded">
+            <thead >
+                <tr >
+                    <th style="background-color: #e1e1e1;"></th>
+                    <th style="background-color: #e1e1e1;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Product</th>
+                    <th style="background-color: #e1e1e1;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Price</th>
+                    <th style="background-color: #e1e1e1;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Category</th>
+                    <th style="background-color: #e1e1e1;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Added in</th>
+                    <th style="background-color: #e1e1e1;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Added By</th>
+                    <th style="background-color: #e1e1e1;color: #63656b; font-size: 16px; font-family: Open Sans; font-weight: 600;">Action</th>
+                  </tr>
+            </thead>
+            <tbody >
+              <tr *ngFor="let product of PendingProducts" >
+                <td>
+                    <!-- Assume you have an input or an image element where the user interacts -->
+                    <ng-container *ngFor="let imageName of product.imageNames; let i = index">
+                      <img [src]="'http://localhost:8081/' + imageName" style="width: 80px; cursor: pointer;" (click)="openModal('http://localhost:8081/' + imageName)">
+                    </ng-container>
+
+
+                </td>
+                <td><span style="color: #222B45; font-size: 15px; font-family: Open Sans; font-weight: 600">{{ product.name }}</span>
+                  <br>
+                  <span style="color: #222B45; font-size: 14px; font-family: Open Sans; font-weight: 500">{{ product.brand }}</span>
+                  <br>
+                  <span style="color: #222B45; font-size: 14px; font-family: Open Sans; font-weight: 400">{{ product.category }}</span>
+                </td>
+                <td style="color: #60850F; font-size: 15px; font-family: Open Sans; font-weight: 800;"><b>{{ product.price }}</b></td>
+                <td style="color: #222B45; font-size: 15px; font-family: Open Sans; font-weight: 500;">{{ product.category }}</td>
+                <td style="color: #222B45; font-size: 15px; font-family: Open Sans; font-weight: 500;">{{ product.dateadded }}</td>
+                <td style="color: #222B45; font-size: 15px; font-family: Open Sans; font-weight: 600;">{{ product.vendor.businessName }}</td>
+                <td>
+                  <div class="table-buttons">
+                    <button type="button" class="btn btn-primary btn-sm" (click)="approveProduct(product.id)">Approve</button>
+                    <button type="button" class="btn btn-danger btn-sm" (click)="deleteProduct(product.id)">Delete</button>
+                  </div>
+                </td>
+              </tr>
+              
+              <!-- Add more rows as needed -->
+            </tbody>
+          </table>
+        </div>
+    </div>

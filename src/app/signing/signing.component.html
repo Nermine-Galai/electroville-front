@@ -1,0 +1,144 @@
+
+    <!-- container div -->
+    <div class="container offset-2 offset-md-3 offset-lg-4" style="margin-top: 1cm;">
+
+        <!-- upper button section to select
+             the login or signup form -->
+        <div class="btnn row">
+            <button class="login col" [class.active]="isLogin" (click)="isLogin = true">Login</button>
+            <button class="signup col" [class.active]="!isLogin" (click)="isLogin = false">Signup</button>
+            <div class="border" [ngClass]="{'login-border': isLogin, 'signup-border': !isLogin}"></div>
+          </div>
+
+        <!-- Form section that contains the
+             login and the signup form -->
+        <div class="form-section" [class.form-section-move]="!isLogin">
+            <!-- login form -->
+             <form  [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
+            <div class="login-box" [class.hidden]="!isLogin">
+              <div class="row">
+                <h1 class="col title" style="width: 100%; color: black; font-family: Montserrat; font-weight: 700; line-height: 31.20px">Welcome Back !</h1>
+              </div>
+                <div style="color: red;font-family: Montserrat; font-weight: 500;" *ngIf="errorMessage" class="error-message row">
+                  {{ errorMessage }}
+                </div>
+                <mat-form-field color="primary" class="custom-mat-form-field ele" appearance="outline">
+                    <mat-label>Email Address</mat-label>
+                    <input  matInput class="custom-mat-input" formControlName="email" required >
+                    <mat-error *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+                        Please enter a valid email address
+                      </mat-error>
+                  </mat-form-field>
+                
+                  <mat-form-field class="custom-mat-form-field" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="password" required minlength="8" class="custom-mat-input ele" [type]="hide() ? 'password' : 'text'" />
+                    <mat-error *ngIf="loginForm?.get('password')?.invalid && (loginForm?.get('password')?.dirty || loginForm?.get('password')?.touched)">
+                        Please enter your password
+                      </mat-error>
+                    <button
+                      mat-icon-button
+                      matSuffix
+                      (click)="clickEvent($event)"
+                      [attr.aria-label]="'Hide password'"
+                      [attr.aria-pressed]="hide()"
+                    >
+                      <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                  </mat-form-field>
+                       <button class="btn" style="width: 90%; background: black; border-radius: 2px; justify-content: center; align-items: center; display: inline-flex">
+                        <div style="color: white; font-size: 14px; font-family: Public Sans; font-weight: 700; text-transform: uppercase; letter-spacing: 0.17px;">Sign in </div>
+                        <i class="material-icons" style="color: white;">arrow_forward</i>
+                       
+                       </button>
+            </div>
+        </form>
+            <!-- signup form -->
+            <form [formGroup]="signupForm" *ngIf="!isLogin" (ngSubmit)="onSubmitSignup()">
+            <div class="signup-box" [class.hidden]="isLogin">
+                <h1 class="title" style="width: 100%; text-align: center; color: black; font-family: Montserrat; font-weight: 700; line-height: 31.20px">Create an Account</h1>
+                <div style="color: red;font-family: Montserrat; font-weight: 500;" *ngIf="errorMessage && !successMessage" class="error-message">
+                  {{ errorMessage }}
+                </div>
+                <div style="color: green;font-family: Montserrat; font-weight: 500;" *ngIf="successMessage" class="error-message">
+                  {{ successMessage }}
+                </div>
+
+                <mat-form-field color="primary" class="custom-mat-form-field ele" appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input formControlName="username" required matInput class="custom-mat-input" >
+                    <mat-error *ngIf="signupForm?.get('name')?.invalid && (signupForm?.get('name')?.dirty || signupForm?.get('name')?.touched)">
+                        Please enter your name
+                      </mat-error>
+                </mat-form-field>
+                <mat-form-field color="primary" class="custom-mat-form-field ele" appearance="outline">
+                    <mat-label>Email Address</mat-label>
+                    <input formControlName="email" required email  matInput class="custom-mat-input" >
+                    <mat-error *ngIf="signupForm?.get('email')?.invalid && (signupForm?.get('email')?.dirty || signupForm?.get('email')?.touched)">
+                        Please enter a valid email address
+                      </mat-error>
+                </mat-form-field>
+                <mat-checkbox class="check" #checkbox (change)="onCheckboxChange($event)">
+                    <div style="color: #475156; font-size: 14px; font-family: Public Sans; font-weight:400;">I am here to list my products for sale</div>
+                  </mat-checkbox>
+                  
+                  <div class="signup-box" *ngIf="checkbox.checked">
+                    <mat-form-field color="primary" class="custom-mat-form-field ele" appearance="outline">
+                      <mat-label>Business Name</mat-label>
+                      <input matInput class="custom-mat-input" formControlName="businessName" required>
+                      <mat-error *ngIf="signupForm?.get('businessName')?.invalid && (signupForm?.get('businessName')?.dirty || signupForm?.get('businessName')?.touched)">
+                        Please enter your business name
+                      </mat-error>
+                    </mat-form-field>
+                    <mat-form-field color="primary" class="custom-mat-form-field ele" appearance="outline">
+                      <mat-label>Business Address</mat-label>
+                      <input matInput class="custom-mat-input" formControlName="businessAddress" required>
+                      <mat-error *ngIf="signupForm?.get('businessAddress')?.invalid && (signupForm?.get('businessAddress')?.dirty || signupForm?.get('businessAddress')?.touched)">
+                        Please enter your business address
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                <mat-form-field class="custom-mat-form-field" appearance="outline">
+                    <mat-label>New Password</mat-label>
+                    <input matInput class="custom-mat-input ele" [type]="hide() ? 'password' : 'text'" formControlName="password" required minlength="8" />
+                    <mat-error *ngIf="signupForm?.get('password')?.invalid && (signupForm?.get('password')?.dirty || signupForm?.get('password')?.touched)">
+                        Please enter a password with at least 8 characters
+                      </mat-error>
+                    <button
+                      mat-icon-button
+                      matSuffix
+                      (click)="clickEvent($event)"
+                      [attr.aria-label]="'Hide password'"
+                      [attr.aria-pressed]="hide()"
+                    >
+                      <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                  </mat-form-field>
+                  <mat-form-field class="custom-mat-form-field" appearance="outline">
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput class="custom-mat-input ele" [type]="hide() ? 'password' : 'text'" formControlName="confirmPassword" required minlength="8"/>
+                    <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('mismatch')">
+                        Passwords don't match
+                      </mat-error>
+                    <button
+                      mat-icon-button
+                      matSuffix
+                      (click)="clickEvent($event)"
+                      [attr.aria-label]="'Hide password'"
+                      [attr.aria-pressed]="hide()"
+                    >
+                      <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                  </mat-form-field>
+                  <button class="btn" style="width: 90%; background: black; border-radius: 2px; justify-content: center; align-items: center; display: inline-flex">
+                    <div style="color: white; font-size: 14px; font-family: Public Sans; font-weight: 700; text-transform: uppercase; letter-spacing: 0.17px;">Sign up </div>
+                    <i class="material-icons" style="color: white;">arrow_forward</i>
+                   
+                   </button>
+                   
+            </div>
+        </form>
+        </div>
+    </div>
+    
+

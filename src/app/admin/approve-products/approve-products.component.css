@@ -1,0 +1,37 @@
+.table-without-lines {
+    width: 100%;
+  }
+  .table-without-lines td, .table-without-lines th {
+    
+    padding: 16px; /* Adjust padding as needed */
+  }
+  .table-without-lines td{
+    border-bottom: 2px solid #e0e0e0;
+  }
+  
+  
+.title {
+    color: #222B45;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+.table-rounded {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px; /* Adjust the radius to your preference */
+    overflow: hidden; /* Ensures rounded corners are visible */
+}
+
+.table-buttons {
+  display: flex;
+  flex-direction: column;
+}
+.table-buttons .btn {
+  margin-bottom: 5px;
+  width: 100px; /* Adjust the width as needed */
+  font-size: 12px; /* Adjust the font size as needed */
+}
+.table-buttons .btn:last-child {
+  margin-bottom: 0;
+}

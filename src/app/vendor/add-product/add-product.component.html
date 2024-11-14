@@ -1,0 +1,137 @@
+<div class="modal-dialog modal-xl">
+    <div class="modal-content">
+        <a class="close" aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </a>
+        <div class="row" style="margin-top: 1cm;">
+            <div class="col offset-4" style=" color: black; font-size: 30px; font-family: Montserrat; font-weight: 700;">Add a product</div>
+        </div>
+        <div class="row">
+            <form [formGroup]="addForm">
+                
+              <div class="col-md-6 col-10 offset-1" style="display: inline-block">
+                <div class="row">
+                  <span class="text">Name</span>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <input type="text" id="name" class="form-control"
+                           [ngClass]="{'is-invalid': addForm.get('name')?.invalid && (addForm.get('name')?.dirty || addForm.get('name')?.touched)}"
+                           formControlName="name" required>
+                    <div class="invalid-feedback" *ngIf="addForm.get('name')?.invalid && (addForm.get('name')?.dirty || addForm.get('name')?.touched)">
+                      Please enter a valid name
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="col-md-3 col-4 offset-1" style="display: inline-block">
+                <div class="row">
+                  <span class="text">Price</span>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-text">TND</span>
+                      <input type="number" id="price" class="form-control"
+                      [ngClass]="{'is-invalid': addForm.get('price')?.invalid && (addForm.get('price')?.dirty || addForm.get('price')?.touched)}"
+                      formControlName="price" required>
+                    </div>
+                    <div class="invalid-feedback" *ngIf="addForm.get('price')?.invalid && (addForm.get('price')?.dirty || addForm.get('price')?.touched)">
+                      Please enter a valid price
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            
+            <div class="row" style="margin-top: 0.8cm;">
+                <div class="col-10 offset-1">
+                  <div class="drop-zone border p-5 rounded">
+                    <div *ngIf="!pictures.length">
+                      <p class="text-muted"> <b>Drag and drop pictures here (min 1 pic, max 3 pics)</b></p>
+                    </div>
+                    <div *ngFor="let picture of pictures; let i = index" class="mb-3">
+                      <img  [src]="picture.preview" alt="Uploaded picture" class="img-fluid" width="20%">
+                      <button type="button" (click)="removePicture(i)" class="btn btn-sm btn-danger">Remove</button>
+                    </div>
+                    <input type="file" (change)="onFileChange($event)" multiple class="form-control">
+                  </div>
+                  
+                </div>
+              </div>
+            <div class="row offset-1" style="margin-top: 0.5cm;">
+                <span class="text">Description</span>
+              </div>
+            <div class="row">
+              <div class="col-10 offset-1">
+              <div class="form-group">
+                <textarea id="description" class="form-control" formControlName="description" required [ngClass]="{'is-invalid': addForm.get('description')?.invalid && (addForm.get('description')?.dirty || addForm.get('description')?.touched)}"></textarea>
+                <div class="invalid-feedback" *ngIf="addForm.get('description')?.invalid && (addForm.get('description')?.dirty || addForm.get('description')?.touched)">
+                  Please enter a description for this product
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="row" style="margin-top: 0.5cm;">
+                <div class="col-4 offset-1" style="display: inline-block">
+                  <div class="row">
+                    <span class="text">Category</span>
+                  </div>
+                  <div class="row">
+                    <div class="form-group">
+                      <select id="category" class="form-select" formControlName="category" required [ngClass]="{'is-invalid': addForm.get('category')?.invalid && (addForm.get('category')?.dirty || addForm.get('category')?.touched)}">
+                        <option value="cameras">Cameras</option>
+                        <option value="computer and laptops">Computer & laptops</option>
+                        <option value="mobile and phones">Mobile & phones</option>
+                        <option value="accessories">Accessories</option>
+                        <option value="tv">Tv</option>
+                      </select>
+                      <div class="invalid-feedback" *ngIf="addForm.get('category')?.invalid && (addForm.get('category')?.dirty || addForm.get('category')?.touched)">
+                        Please choose a category
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4 offset-2" style="display: inline-block">
+                  <div class="row">
+                    <span class="text">Brand</span>
+                  </div>
+                  <div class="row">
+                    <div class="form-group">
+                      <input type="text" id="brand" class="form-control" formControlName="brand" required [ngClass]="{'is-invalid': addForm.get('brand')?.invalid && (addForm.get('brand')?.dirty || addForm.get('brand')?.touched)}">
+                      <div class="invalid-feedback" *ngIf="addForm.get('brand')?.invalid && (addForm.get('brand')?.dirty || addForm.get('brand')?.touched)">
+                        Please enter a valid brand
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4 offset-4" style="display: inline-block">
+                    <div class="row">
+                      <span class="text">Inventory</span>
+                    </div>
+                    <div class="row">
+                      <div class="form-group">
+                        <input type="number" id="inventory" class="form-control" formControlName="inventory" required [ngClass]="{'is-invalid': addForm.get('inventory')?.invalid && (addForm.get('inventory')?.dirty || addForm.get('inventory')?.touched)}">
+                        <div class="invalid-feedback" *ngIf="addForm.get('inventory')?.invalid && (addForm.get('inventory')?.dirty || addForm.get('inventory')?.touched)">
+                          Please enter a valid inventory
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="error-message d-flex justify-content-center mb-3" style="color: red;" *ngIf="pictureValidationError">
+                {{ pictureValidationError }}
+              </div>
+              <div class="col-2 offset-5">
+                <button (click)="onSubmit()" class="btn" style="width: 100%; margin-top: 0.6cm;margin-bottom: 0.5cm; background-color: black; color: white; border-radius: 20px;  font-family: Montserrat; font-weight: 500;" >Submit</button>
+            </div>
+            </form>
+          </div>
+            
+          
+    </div>
+</div>

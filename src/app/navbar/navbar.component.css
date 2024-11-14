@@ -1,0 +1,225 @@
+/* styles.css or your component's CSS file */
+
+.navbar-img2 {
+  display: none;
+}
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px; /* Adjust margin-top as needed */
+  }
+  
+  .input-group {
+    position: relative;
+    width: 15cm; /* Adjust width as needed */
+    height: 1.2cm;
+  }
+  
+  .input-group-append {
+    position: absolute;
+    right: 10px; /* Adjust right position as needed */
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .form-control {
+    border-radius: 20px; /* Adjust border-radius as needed */
+    padding-right: 40px; /* Adjust padding to make space for the icon */
+    background-color: #F0F0F0;
+  }
+  
+  .btn {
+    border: none; /* Remove border */
+    background-color: transparent; /* Make background transparent */
+    z-index: 1000;
+  }
+  
+  .btn:focus {
+    box-shadow: none; /* Remove focus box-shadow */
+  }
+  
+  /* Example of changing size for Font Awesome icons */
+  .fa-lg {
+    font-size: 1.3rem; /* Adjust font-size as needed */
+    color: #909090;
+  }
+  
+  /* styles.css or your component's CSS file */
+
+.larger-icon {
+    font-size: 2rem; /* Adjust font-size to make it bigger */
+    margin-top: 10px;
+  }
+
+
+/* styles.css or your component's CSS file */
+
+.categories-row {
+    background-color: #000; /* Black background for the category row */
+    color: #fff; /* White text color */
+    padding: 10px 0; /* Adjust padding as needed */
+  }
+  
+  .btn-group {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .btn-dark {
+    margin: 0 5px; /* Adjust margin between buttons */
+    position: relative; /* Enable positioning for pseudo-element */
+    border-right: 1px solid #fff; /* White vertical line between buttons */
+    border-radius: 50px; /* Round the button */
+    padding: 10px 20px; /* Adjust padding as needed */
+    display: flex; /* Ensure button is displayed as flex for aligning content */
+    align-items: center; /* Align items vertically */
+  }
+  
+  .btn-dark:last-child {
+    border-right: none; /* Remove vertical line for the last button */
+  }
+  .btn-icon {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff; /* White circle background */
+    width: 40px; /* Adjust width of the circle */
+    height: 40px; /* Adjust height of the circle */
+    border-radius: 50%; /* Round the circle */
+    margin-right: 10px; /* Adjust spacing between icon and text */
+  }
+  
+  .mat-icon-round {
+    font-size: 1.5rem; /* Adjust icon size */
+    color: #000; /* Black color for the icon */
+  }
+
+  .categories{
+    color: white;
+font-size: 20px;
+font-family: Montserrat;
+font-weight: 700;
+line-height: 26px;
+word-wrap: break-word;
+flex:1
+  }
+  @media (max-width: 1440px) {
+    .navbar-brand{
+      width: 5cm;
+    }
+    .navbar-img{
+      width: 7cm;
+    }
+    .input-group{
+      width: 14cm;
+    }
+    
+  }
+
+  @media (max-width: 1300px) {
+    .navbar-brand{
+      width: 4cm;
+    }
+    .navbar-img{
+      width: 6cm;
+    }
+    .input-group{
+      width: 13cm;
+    }
+    
+  }
+
+  @media (max-width: 1200px) {
+    .navbar-brand{
+      width: 4cm;
+    }
+    .navbar-img{
+      width: 6cm;
+    }
+    .input-group{
+      width: 12cm;
+    }
+    
+  }
+
+  @media (max-width: 1100px) {
+    .navbar-brand{
+      width: 3cm;
+    }
+    .navbar-img{
+      width: 5cm;
+    }
+    .input-group{
+      width: 12cm;
+    }
+    
+  }
+
+  @media (max-width: 992px) { /* Medium devices (tablets, 768px and up) */
+    .text-responsive {
+        font-size: 1rem;
+    }
+    .input-group{
+      width: 9cm;
+    }
+
+    
+    
+}
+
+@media (max-width: 768px) { /* Small devices (landscape phones, 576px and up) */
+    .text-responsive {
+        font-size: 0.7rem;
+    }
+    .input-group{
+      width: 7cm;
+    }
+}
+
+
+
+@media (max-width: 650px) { /* Smaller than portrait phones */
+    .text-responsive {
+        display: none;
+    }
+    .icon-wrapper{
+      margin-left: 0.2cm;
+      width: 30px;
+      height: 30px;
+    }
+    .mat-icon-round{
+      width: 90px;
+    }
+
+    .input-group{
+      width: 5.5cm;
+    }
+}
+@media (max-width: 576px) {
+  .navbar-img{
+    display: none;
+  }
+  .navbar-img2{
+    display:inline;
+  }
+  .navbar-brand{
+    width: 1cm;
+  }
+  
+}
+
+
+
+
+  
+ 
+  
+  

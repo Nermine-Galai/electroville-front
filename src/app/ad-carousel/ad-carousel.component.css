@@ -1,0 +1,39 @@
+.carousel-img {
+    height: 16cm; /* Adjust the height as per your requirement */
+    object-fit: cover; /* Ensures the image covers the entire area without stretching */
+    object-position: center; /* Centers the image within its container */
+  }
+  @media (max-width: 1200px) {
+    .carousel-img {
+      height: 13cm;
+    }
+    
+  }
+  @media (max-width: 1000px) {
+    .carousel-img {
+      height: 10cm;
+    }
+    
+  }
+  @media (max-width: 800px) {
+    .carousel-img {
+      height: 9cm;
+    }
+    
+  }
+  @media (max-width: 600px) {
+    .carousel-img {
+      height: 8cm;
+    }
+    
+  }
+  @media (max-width: 500px) {
+    .carousel-img {
+      height: 7cm;
+    }
+    
+  }
+
+  
+    
+  
